@@ -48,6 +48,20 @@
     }
 }
 
+/* @keyframes hideDropDown {
+когда-то на будущее
+    from {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+    }
+} */
+
 .drop-down--active {
     position: absolute;
     top: 100%;
@@ -63,6 +77,10 @@
 
     animation: showDropDown 250ms ease-in-out forwards;
 }
+/* 
+.drop-down--inactive {
+    animation: hideDropDown 250ms ease-in-out forwards;
+} */
 
 .drop-down__profile-actions {
     border-bottom: 2px solid var(--background-color);

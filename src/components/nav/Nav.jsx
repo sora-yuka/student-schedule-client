@@ -32,7 +32,6 @@ export default function Nav() {
     }, [  ])
 
     useEffect(() => {
-        console.log("Is authenticated: ", isAuthenticated)
         if (isAuthenticated) {
             fetchUser()
         }

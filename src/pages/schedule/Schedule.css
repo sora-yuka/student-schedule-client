@@ -1,0 +1,37 @@
+.schedule-row {
+    display: flex;
+    font-weight: 700;
+}
+
+.schedule__secondary {
+    padding-right: 50px;
+    border-right: 2px solid var(--background-color);
+}
+
+.day {
+    margin-bottom: 20px;
+}
+
+.day__headline {
+    font-size: 20px;
+}
+
+.secondary__time {
+    padding-bottom: 20px;
+}
+
+.hint {
+    font-size: 14px;
+    font-weight: 400;
+    opacity: .8;
+}
+
+.secondary__time {
+    display: flex;
+    gap: 50px;
+}
+
+.time__value {
+    margin-top: 20px;
+    font-size: 20px;
+}
