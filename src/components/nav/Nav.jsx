@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, Fragment } from 'react'
+import { useState, useEffect, useCallback, useRef, Fragment } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import Button from '../../components/button/Button'
 
@@ -43,6 +43,7 @@ export default function Nav() {
             <div className="container">
                 <div className="nav-row">
                     <ul className="nav-list">
+                        <span className="site-headline"><strong>Edu.</strong>hub</span>
                         <li className="nav-list__item">
                             { profile && (
                                 <Fragment>
@@ -58,7 +59,7 @@ export default function Nav() {
                                     </Button>
 
                                     { isOpen && (
-                                        <div className={ !isOpen ? "drop-down" : "drop-down--active" }>
+                                        <div className={ isOpen ? "drop-down--active" : "" }>
                                             <div className="drop-down__profile-actions">
                                                 <p className="drop-down__hint">Profile setting</p>
 

@@ -14,6 +14,7 @@ export default function Sidebar({ activeContent, setActiveContent }) {
         <div className="sidebar">
             <div className="sidebar-container">
                 <div className="sidebar-row">
+                    <img src="./icons/hashnode.svg" alt="" className="sidebar__icon" />
                     <ul className="sidebar-list">
                         <li className="sidebar-list__item"> 
                             <Button 
@@ -29,19 +30,6 @@ export default function Sidebar({ activeContent, setActiveContent }) {
                             </Button>
                         </li>
                         <li className="sidebar-list__item">
-                            <Button 
-                                className={ activeContent === "chat" ? activeButton : inActiveButton }
-                                onClick={ () => setActiveContent("chat") }
-                            >
-                                <img 
-                                    src="./icons/chat-icon.svg" 
-                                    alt="chat icon" 
-                                    className={ activeContent === "chat" ?  activeButtonIcon : inActiveButtonIcon }  
-                                /> 
-                                Chat
-                            </Button>
-                        </li>
-                        <li className="sidebar-list__item">
                         <Button 
                             className={ activeContent === "news" ? activeButton : inActiveButton }
                             onClick={ () => setActiveContent("news") }
@@ -52,6 +40,19 @@ export default function Sidebar({ activeContent, setActiveContent }) {
                                     className={ activeContent === "news" ? activeButtonIcon : inActiveButtonIcon } 
                                 />
                                 News
+                            </Button>
+                        </li>
+                        <li className="sidebar-list__item">
+                            <Button 
+                                className={ activeContent === "chat" ? activeButton : inActiveButton }
+                                onClick={ () => setActiveContent("chat") }
+                            >
+                                <img 
+                                    src="./icons/chat-icon.svg" 
+                                    alt="chat icon" 
+                                    className={ activeContent === "chat" ?  activeButtonIcon : inActiveButtonIcon }  
+                                /> 
+                                Chat
                             </Button>
                         </li>
                     </ul>

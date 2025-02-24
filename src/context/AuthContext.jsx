@@ -83,6 +83,7 @@ export const AuthProvider = ({ children }) => {
         })
 
         setIsAuthenticated(false)
+        navigate("/login")
         return response
     }
 
