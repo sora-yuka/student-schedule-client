@@ -1,16 +1,17 @@
 .sidebar {
     width: 20%;
     height: 100vh;
+    border-right: 2px solid var(--sidebar-border-color);
     background-color: var(--container-background-color);
 }
 
-.sidebar-row {
-    margin: 80px 10px;
-    color: #A09FA2;
+.sidebar-container {
+    padding: 0 15px;
 }
 
-.sidebar-list {
-
+.sidebar-row {
+    margin: 100px 10px;
+    color: #A09FA2;
 }
 
 .sidebar-list__item {

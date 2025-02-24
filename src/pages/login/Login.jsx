@@ -34,14 +34,14 @@ export default function Login() {
 
         setTimeout(() => {
             navigate("/")
-        }, 2000)
+        }, 1700)
 
     }, [ email, password, login, navigate ])
 
     return (
         <div className="login">
             <Toaster />
-            <div className="container">
+            <div className="login-container">
                 <div className="login__row">
                     <div className="login__content">
                         <h2 className="login__headline">Hello again 👋🏻</h2>
@@ -72,7 +72,7 @@ export default function Login() {
                                 Show password
                             </label>
                             <br />
-                            <Button className="btn-submit">
+                            <Button className="btn__submit">
                                 Submit
                             </Button>
                         </form>

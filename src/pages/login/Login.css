@@ -9,6 +9,12 @@
     background-color: var(--container-background-color);
 }
 
+.login-container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
 .login__content {
     width: 48%;
 

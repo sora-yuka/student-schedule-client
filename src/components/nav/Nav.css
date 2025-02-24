@@ -1,0 +1,59 @@
+.nav {
+    width: 80Vw;
+    padding: 20px 0;
+    background-color: var(--container-background-color);
+}
+
+.nav-list {
+    display: flex;
+    justify-content: end;
+}
+
+.nav-list__item {
+    position: relative;
+}
+
+.profile-photo {
+    height: 60px;
+    border-radius: 10px;
+    transition: all 300ms;
+}
+
+.profile-photo:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.drop-down {
+    opacity: 0;
+    visibility: hidden;
+    transition-property: opacity, visibility;
+    transition-duration: 250ms;
+    transition-timing-function: ease;
+}
+
+.drop-down--active {
+    opacity: 1;
+    visibility: visible;
+
+    position: absolute;
+    top: 100%;
+    right: 0;
+
+    width: 250px;
+    margin-top: 10px;
+    padding: 30px 20px 20px;
+    font-weight: 700;
+    border-radius: 15px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    background-color: var(--container-background-color);
+}
+
+.drop-down__profile-actions {
+    border-bottom: 2px solid var(--background-color);
+}
+
+.drop-down__hint {
+    margin-left: 20px;
+    font-size: 14px;
+    opacity: .7;
+}
