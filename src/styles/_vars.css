@@ -1,0 +1,16 @@
+:root {
+    /* fonts */
+    /* --main-font: "Ubuntu", serif; */
+    --main-font: "Nunito", serif;
+    
+    /* colors */
+    --btn-color: #3B3B3B;
+    --btn-on-hover-color: #fff;
+    --btn-background-color: #1A1A1A;
+
+    --sidebar-active-color: #000;
+    --sidebar-inactive-color: #A09FA2;
+
+    --background-color: #eeeeee;
+    --container-background-color: #FCFBFD;
+}

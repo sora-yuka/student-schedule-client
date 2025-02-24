@@ -1,0 +1,18 @@
+.sidebar {
+    width: 20%;
+    height: 100vh;
+    background-color: var(--container-background-color);
+}
+
+.sidebar-row {
+    margin: 80px 10px;
+    color: #A09FA2;
+}
+
+.sidebar-list {
+
+}
+
+.sidebar-list__item {
+    padding: 5px 30px;
+}

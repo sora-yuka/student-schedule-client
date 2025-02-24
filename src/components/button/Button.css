@@ -1,0 +1,95 @@
+.btn {
+    color: var(--btn-color);
+    font-weight: 600;
+    padding: 16px 24px;
+    border: 2px solid var(--btn-background-color);
+    border-radius: 20px;
+    background-color: transparent;
+    transition: all 300ms;
+}
+
+.btn:hover {
+    color: var(--btn-on-hover-color);
+    background-color: var(--btn-background-color);
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    pointer-events: none;
+}
+
+.btn-submit {
+    color: var(--btn-color);
+    font-weight: 600;
+    padding: 16px 150px;
+    border: 2px solid var(--btn-background-color);
+    border-radius: 20px;
+    background-color: transparent;
+    transition: all 300ms;
+}
+
+.btn-submit:hover {
+    color: var(--btn-on-hover-color);
+    background-color: var(--btn-background-color);
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.btn-submit:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+.btn-submit:disabled {
+    pointer-events: none;
+}
+
+/* Sidebar buttons */
+
+.btn-sidebar {
+    width: 330px;
+    padding: 15px 30px;
+    margin-left: -30px;
+
+    color: var(--sidebar-inactive-color);
+    text-align: start;
+    border-radius: 5px;
+}
+
+.btn-sidebar--active {
+    width: 330px;
+    padding: 15px 30px;
+    margin-left: -30px;
+
+    text-align: start;
+    color: var(--sidebar-active-color);
+    border-radius: 5px;
+    background-color: var(--background-color);
+}
+
+.btn-sidebar__icons {
+    height: 20px;
+    margin-right: 10px;
+    opacity: .4;
+}
+
+.btn-sidebar__icons--active {
+    height: 20px;
+    margin-right: 10px;
+    opacity: 1;
+}
+
+/* .list-item__icons {
+}
+
+.list-item__icons--active {
+    height: 20px;
+    margin-right: 10px;
+    opacity: 1;
+} */
