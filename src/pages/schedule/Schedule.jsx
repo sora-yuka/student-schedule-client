@@ -6,12 +6,7 @@ import './Schedule.css'
 
 export default function Schedule() {
     const [ schedule, setSchedule ] = useState(null)
-    const [ monday, setMonday ] = useState(null)
-    const [ tuesday, setTuesday ] = useState(null)
-    const [ wednesday, setWednesday ] = useState(null)
-    const [ thursday, setThursday ] = useState(null)
-    const [ friday, setFriday ] = useState(null)
-    const navigate = useNavigate()
+    const [ day, setDay ] = useState("Monday")
 
     const fetchSchedule = useCallback(async () => {
         try {
@@ -24,8 +19,6 @@ export default function Schedule() {
             if (response.status === 200) {
                 const data = await response.json()
                 setSchedule(data[0])
-                setMonday(data[0]["Monday"])
-                setFriday(data[0]["Friday"])
             }
         } catch (error) {
             console.log("An error occured while getting schedule data")
@@ -36,57 +29,51 @@ export default function Schedule() {
         fetchSchedule()
     }, [ fetchSchedule ])
 
-    return (
-        <Fragment>
-            <div className="schedule-row">
-                { schedule && (
-                    <>
-                        { Object.entries(schedule).map(([ day, data ]) => {
-                            if (data === "No schedule") {
-                                <p>No schedule</p>
-                            }
-                            
-                            <div className="day" key={day}>
-                                <h3 className="day__headline">{day}</h3>
-                                <ul className="secondary__time">
-                                    <ul className="time__start">
-                                        <li className="hint">Start</li>
-                                        <li className="time__value">{data.start_period}</li>
-                                    </ul>
-                                    <ul className="time__end">
-                                        <li className="hint">End</li>
-                                        <li className="time__value">{data.end_period}</li>
-                                    </ul>
-                                </ul>
-                                <div className="class-room">
-                                    <p className="hint">Class room</p>
-                                    <p className="class-room__value">{data.class_room}</p>
-                                </div>
-                            </div>
-                        }) }
-                    </>
 
-                    // <div className="schedule__secondary">
-                    //     <div className="day">
-                    //         <h3 className="day__headline">Monday</h3>
-                    //     </div>
-                    //     <ul className="secondary__time">
-                    //         <ul className="time__start">
-                    //             <li className="hint">Start</li>
-                    //             <li className="time__value">{ schedule.Monday.start_period }</li>
-                    //         </ul>
-                    //         <ul className="time__end">
-                    //             <li className="hint">End</li>
-                    //             <li className="time__value">{ schedule.Monday.end_period }</li>
-                    //         </ul>
-                    //     </ul>
-                    //     <div className="class-room">
-                    //         <p className="hint">Class room</p>
-                    //         <p className="class-room__value">{ schedule.Monday.class_room }</p>
-                    //     </div>
-                    // </div>
-                ) }
-            </div>
-        </Fragment>
+
+    return (
+        <div className="schedule-row">
+            { schedule && (
+                <Fragment>
+                    <div className="schedule__secondary">
+                        <div className="day">
+                            <select className="day__headline" onChange={ (event) => { setDay(event.target.value) } }>
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Saturday">Saturday</option>
+                            </select>
+                        </div>  
+                        <ul className="secondary__list">
+                            { schedule[day].map((currentSchedule, id) => (
+                                <li className="secondary__list-item" key={ id }>
+                                    <div className="list-item__row">
+                                        <p className="hint">Start</p>
+                                        <p className="hint">End</p>
+                                    </div>
+                                    <div className="list-item__row">
+                                        <div className="time-value">{ currentSchedule.start_period }</div>
+                                        <div className="time-value">{ currentSchedule.end_period }</div>
+                                    </div>
+                                    <div className="list-item__class">
+                                        <p className="hint">Class room</p>
+                                        <div className="class-value">{ currentSchedule.class_room }</div>
+                                    </div>
+                                </li>
+                            )) }
+                        </ul>
+                    </div>
+                    <div className="schedule__primary">
+                        { schedule[day].map((currentSchedule, id) => (
+                            <p>
+                                { currentSchedule.lesson_name }
+                            </p>
+                        )) }
+                    </div>
+                </Fragment>
+            ) }
+        </div>
     )
 }

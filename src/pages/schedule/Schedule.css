@@ -1,3 +1,12 @@
+/* Primary block */
+
+.schedule__primary {
+    margin: 20px;
+}
+
+
+/* Secondary block */
+
 .schedule-row {
     display: flex;
     font-weight: 700;
@@ -13,25 +22,34 @@
 }
 
 .day__headline {
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: 600;
 }
 
-.secondary__time {
-    padding-bottom: 20px;
+.secondary__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.list-item__row {
+    display: flex;
+    gap: 30px;
 }
 
 .hint {
+    margin-right: 25px;
     font-size: 14px;
     font-weight: 400;
     opacity: .8;
 }
 
-.secondary__time {
-    display: flex;
-    gap: 50px;
+.time-value {
+    margin-top: 10px;
+    font-size: 20px;
 }
 
-.time__value {
-    margin-top: 20px;
-    font-size: 20px;
+.list-item__class {
+    margin-top: 10px;
+    font-weight: 500;
 }
