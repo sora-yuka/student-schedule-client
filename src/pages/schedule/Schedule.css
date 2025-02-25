@@ -1,9 +1,32 @@
 /* Primary block */
 
 .schedule__primary {
-    margin: 20px;
+    margin: 60px 50px;
 }
 
+.primary__list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.primary__list-item {
+    height: 100px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.additional-text {
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px;
+}
+
+.subject {
+    font-size: 24px;
+    font-weight: 800;
+}
 
 /* Secondary block */
 
@@ -13,7 +36,7 @@
 }
 
 .schedule__secondary {
-    padding-right: 50px;
+    padding: 0 10px 0 30px;
     border-right: 2px solid var(--background-color);
 }
 
@@ -23,7 +46,11 @@
 
 .day__headline {
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 700;
+}
+
+.day__headline option {
+    font-size: 16px;
 }
 
 .secondary__list {
@@ -32,9 +59,9 @@
     gap: 20px;
 }
 
-.list-item__row {
-    display: flex;
-    gap: 30px;
+.time-row {
+    display: grid;
+    grid-template-columns: 100px 100px;
 }
 
 .hint {
