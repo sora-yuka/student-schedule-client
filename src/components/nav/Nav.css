@@ -27,6 +27,7 @@
 
 .profile-photo {
     height: 60px;
+    width: 60px;
     border-radius: 10px;
     transition: all 300ms;
 }

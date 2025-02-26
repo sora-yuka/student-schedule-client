@@ -1,4 +1,5 @@
 .main-wrapper {
     display: flex;
     height: 100vh;
+    min-width: 1540px;
 }

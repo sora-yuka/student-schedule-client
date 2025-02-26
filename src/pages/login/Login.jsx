@@ -69,11 +69,11 @@ export default function Login() {
                                     className="show-password__checkbox"
                                     onChange={ () => { setShowPassword(!showPassword) } }
                                 />
-                                Show password
+                                Показать пароль
                             </label>
                             <br />
                             <Button className="btn__submit">
-                                Submit
+                                Отправить
                             </Button>
                         </form>
                     </div>
