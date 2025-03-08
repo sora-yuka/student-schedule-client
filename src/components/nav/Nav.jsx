@@ -12,7 +12,7 @@ export default function Nav() {
 
     const fetchUser = useCallback(async () => {
         try {
-            const response = await fetch("http://localhost:8000/api/v1/profile/", {
+            const response = await fetch("http://localhost:8000/api/v1/profile/me/", {
                 method: "GET",
                 headers: { "Content-type": "application/json" },
                 credentials: "include",
@@ -24,12 +24,12 @@ export default function Nav() {
 
             if (response.status === 200) {
                 const data = await response.json()
-                setProfile(data[0])
+                setProfile(data)
             }
         } catch (error) {
             console.log("Error occured while getting profile.")
         }
-    }, [  ])
+    }, [ ])
 
     useEffect(() => {
         if (isAuthenticated) {
@@ -61,7 +61,6 @@ export default function Nav() {
                                         <div className={ isOpen ? "drop-down--active" : "" }>
                                             <div className="drop-down__profile-actions">
                                                 <p className="drop-down__hint">Profile setting</p>
-
                                                 <Button className="btn__drop-down">
                                                     View profile
                                                 </Button>

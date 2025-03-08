@@ -1,5 +1,9 @@
 .main-wrapper {
-    display: flex;
-    height: 100vh;
-    min-width: 1540px;
+    min-height: 100vh;
+    
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas: 
+        "sidebar nav"
+        "sidebar content";
 }

@@ -17,3 +17,17 @@ html, body {
     margin: 0 auto;
     padding: 0 15px;
 }
+
+div::selection,
+h1::selection, 
+h2::selection, 
+h3::selection, 
+h4::selection, 
+h5::selection, 
+h6::selection,
+strong::selection,
+span::selection, 
+p::selection {
+    background-color: black;
+    color: white;
+}

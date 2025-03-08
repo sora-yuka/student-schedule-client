@@ -1,5 +1,6 @@
 import Schedule from '../../pages/schedule/Schedule'
 import News from '../../pages/news/News'
+import Chat from '../../pages/chat/Chat'
 
 import './Content.css'
 
@@ -15,6 +16,9 @@ export default function Content({ activeContent, contentHeadline }) {
                 ) }
                 { activeContent === "news" && (
                     <News />
+                ) }
+                { activeContent === "chat" && (
+                    <Chat />
                 ) }
             </div>
         </div>

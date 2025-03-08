@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
         if (!response.ok) {
             console.log("Error occured while refreshing token: ", error)
         }
-
+        
         return response
     }
 
@@ -70,7 +70,8 @@ export const AuthProvider = ({ children }) => {
             setIsAuthenticated(false)
             throw new Error("User with given credentials not found")
         }
-
+        const data = await response.json()
+        localStorage.setItem("token", data["ACCESS TOKEN"])
         setIsAuthenticated(true)
         return response
     }
