@@ -15,5 +15,7 @@
     border-radius: 10px;
     max-width: 1400px;
     min-width: 1200px;
+    max-height: calc(100vh - 14vh);
+    overflow: scroll;
     background-color: var(--container-background-color);
 }

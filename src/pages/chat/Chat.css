@@ -1,0 +1,56 @@
+.chat-row {
+    height: calc(100vh - 20vh);
+
+    display: grid;
+    grid-template-areas: 
+        "search-box chat-window";
+    grid-template-columns: 1fr 3fr;
+    gap: 20px;
+}
+
+.chat-sidepanel {
+    font-size: 14px;
+}
+
+.search-box {
+    padding-bottom: 20px;
+}
+
+.search-box__input {
+    width: 100%;
+    height: 40px;
+    padding-left: 40px;
+    border-radius: 5px;
+    font-weight: 600;
+
+    background-color: var(--background-color);
+    background-size: 15px;
+    background-repeat: no-repeat;   
+    background-image: url("./icons/glass.svg");
+    background-position: 14px 12px;
+}
+
+.chat-pool {
+
+}
+
+.chat-pool__item {
+    margin: 5px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.chat-pool__item-photo {
+    width: 50px;
+    margin-right: 10px;
+    border-radius: 7px;
+}
+
+.chat-pool__item-username {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.chat-pool__item-group {
+    font-size: 12px;
+}
