@@ -1,6 +1,6 @@
-import { useState, Fragment } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { AuthProvider } from './context/AuthContext'
+import {useState, Fragment} from 'react'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {AuthProvider} from './context/AuthContext'
 import './App.css'
 
 import HomePage from './pages/HomePage'
@@ -14,11 +14,10 @@ export default function App() {
         <Fragment>
             <BrowserRouter>
                 <AuthProvider>
-                    {/* <Nav /> */}
                     <Routes>
-                        <Route path="/" element={ <HomePage /> } />
-                        <Route path="/login" element={ <Login /> } />
-                        <Route path="*" element={ <NotFound /> } />
+                        <Route path="/" element={<HomePage/>}/>
+                        <Route path="/login" element={<Login/>}/>
+                        <Route path="*" element={<NotFound/>}/>
                     </Routes>
                 </AuthProvider>
             </BrowserRouter>
