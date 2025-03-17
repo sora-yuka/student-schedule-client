@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef, Fragment } from 'react'
+import { useState, useEffect, useCallback, Fragment } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import Button from '../../components/button/Button'
 
@@ -54,7 +54,8 @@ export default function Nav() {
                                             src={ profile.pfp } 
                                             alt="profile photo" 
                                             className="profile-photo"
-                                            />
+                                        />
+                                        { console.log(profile) }
                                     </Button>
 
                                     { isOpen && (

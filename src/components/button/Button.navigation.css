@@ -1,0 +1,32 @@
+.btn__drop-down {
+    width: 210px;
+    margin: 10px 0;
+    padding: 10px 20px;
+    text-align: start;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 10px;
+    transition: all 250ms;
+}
+
+.btn__drop-down:hover {
+    background-color: var(--background-color);
+}
+
+.btn__logout {
+    width: 210px;
+    margin-top: 15px;
+    padding: 10px 0 10px 20px;
+    text-align: start;
+    font-size: 14px;
+    font-weight: 700;
+    opacity: .7;
+    border-radius: 10px;
+    transition: all 250ms;
+}
+
+.btn__logout:hover {
+    opacity: 1;
+    color: red;
+    background-color: var(--background-color);
+}

@@ -1,15 +1,24 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Button from '../button/Button'
 
 import './Sidebar.css'
 
 
 export default function Sidebar({ activeContent, setActiveContent, setContentHeadline }) {
+    const [ isDarkMode, setDarkMode ] = useState(false)
     const inActiveButton = "btn__sidebar"
     const activeButton = "btn__sidebar--active"
     const inActiveButtonIcon = "btn__sidebar-icon"
     const activeButtonIcon = "btn__sidebar-icon--active"
-    
+
+    useEffect(() => {
+        if (isDarkMode === true) {
+            document.body.classList.add('dark-mode')
+        } else {
+            document.body.classList.remove('dark-mode')
+        }
+    })
+
     return (
         <div className="sidebar">
             <div className="sidebar-container">
@@ -65,6 +74,20 @@ export default function Sidebar({ activeContent, setActiveContent, setContentHea
                             </Button>
                         </li>
                     </ul>
+                </div>
+                <div className="sidebar__toggle-theme">
+                    <Button
+                        className={ !isDarkMode ? "toggle-theme__mode--active" : "toggle-theme__mode" }
+                        onClick={ () => { setDarkMode(false) } }
+                    >
+                        light button
+                    </Button>
+                    <Button
+                        className={ isDarkMode ? "toggle-theme__mode--active" : "toggle-theme__mode" }
+                        onClick={ () => { setDarkMode(true) } }
+                    >
+                        dark button
+                    </Button>
                 </div>
             </div>
         </div>

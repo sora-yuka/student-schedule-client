@@ -2,13 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 
+/*.dark-mode {*/
+/*    color: white;*/
+/*    --background-color: var(--dark-background-color);*/
+/*}*/
+
 html, body {
     display: flex;
     flex-direction: column;
     height: 100%;
 
     font-weight: 500;
-    font-family: var(--main-font);
+    font-family: var(--main-font), serif;
+    overflow: hidden;
     background-color: var(--background-color);
 }
 
