@@ -55,7 +55,6 @@ export default function Nav() {
                                             alt="profile photo" 
                                             className="profile-photo"
                                         />
-                                        { console.log(profile) }
                                     </Button>
 
                                     { isOpen && (

@@ -1,13 +1,14 @@
 import { useState, useEffect, useCallback, Fragment } from 'react'
+import ChatWindow from "./Chat.window.jsx";
 
 import './Chat.css'
 
 
 export default function Chat() {
     const [ socket, setSocket ] = useState(null)
-    const [ chat, setChat ] = useState(null)
-    const [ chatPool, setChatPool ] = useState(null)
     const [ receivedMessages, setReceivedMessages ] = useState([])
+    const [ chatPool, setChatPool ] = useState(null)
+    const [ chat, setChat ] = useState(null)
 
     const connectWebsocket = useCallback(async id => {
         const token = localStorage.getItem("token")
@@ -53,72 +54,44 @@ export default function Chat() {
         }
     }, [ ])
 
-    const sendMessage = useCallback(message => {
-        if (socket && socket.readyState === WebSocket.OPEN) {
-            socket.send(JSON.stringify(
-                { "message": message },
-            ))
-        } else {
-            console.error("Websocket is not opened")
-        }
-    }, [ socket ]);
-
     useEffect(() => {
         fetchUser()
     }, [ ])
 
-    return <div className="chat-row">
-        { chatPool && <Fragment>
+    return (
+        <div className="chat-row">
+            { chatPool && <Fragment>
                 <div className="chat-sidepanel">
                     <div className="search-box">
                         <input type="text" placeholder="Поиск" className="search-box__input" />
                     </div>
                     <ul className="chat-pool">
                         { chatPool.map(chat => <li
-                                key={ chat.id }
-                                className="chat-pool__item"
-                                onClick={
-                                    () => {
-                                        setChat(chat)
-                                        connectWebsocket(chat.owner.id)
-                                        console.log(chat)
-                                    }
+                            key={ chat.id }
+                            className="chat-pool__item"
+                            onClick={
+                                () => {
+                                    setChat(chat)
+                                    connectWebsocket(chat.owner.id)
                                 }
-                            >
-                                <img src={ chat.pfp } alt="user photo" className="chat-pool__item-photo" />
-                                <div className="chat-pool__item-info">
-                                    <h3 className="chat-pool__item-username">{ chat.owner.username }</h3>
-                                    <h3 className="chat-pool__item-group">{ chat.group.group_name }</h3>
-                                </div>
-                            </li>) }
+                            }
+                        >
+                            <img src={ chat.pfp } alt="user photo" className="chat-pool__item-photo" />
+                            <div className="chat-pool__item-info">
+                                <h3 className="chat-pool__item-username">{ chat.owner.username }</h3>
+                                <h3 className="chat-pool__item-group">{ chat.group.group_name }</h3>
+                            </div>
+                        </li>) }
                     </ul>
                 </div>
                 { chat && <div className="chat-window">
-                        <div className="chat-window__header">
-                            <img src={ chat.pfp } alt="user photo" className="chat-window__user-photo" />
-                            <h4 className="chat-window__username">{ chat.owner.username }</h4>
-                        </div>
-                        <ul className="chat-window__messages">
-                            { receivedMessages.map((receivedMessage, id) => (
-                                <li key={ id }>
-                                    { console.log(receivedMessage) }
-                                    { receivedMessage.content }
-                                </li>
-                            )) }
-                        </ul>
-                        <input
-                            type="text"
-                            placeholder="Сообщение"
-                            onKeyUp={ event => {
-                                if (event.key === "Enter") {
-                                    sendMessage(event.target.value)
-                                    console.log(event.target.value)
-                                    event.target.value = ''
-                                }
-                            } }
-                            className="chat-window__input"
-                        />
-                    </div> }
+                    <ChatWindow
+                        socket={ socket }
+                        chat={ chat }
+                        receivedMessages={ receivedMessages }
+                    />
+                </div> }
             </Fragment> }
-    </div>
+        </div>
+    )
 }
