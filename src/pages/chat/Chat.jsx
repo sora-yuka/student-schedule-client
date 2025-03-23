@@ -17,21 +17,26 @@ export default function Chat() {
             [ "Bearer", token ]
         )
 
-        socket.onopen = () => {
-            console.log("Websocket opened")
-        }
-
-        socket.onclose = () => {
-            console.error("Chat socket closed unexpectedly")
-        }
-
         socket.onmessage = (e) => {
-            const data = JSON.parse(e.data)
-            setReceivedMessages(prevMessages => [...prevMessages, data])
+            try {
+                const data = JSON.parse(e.data)
+                fetchDirectMessages(chat)
+                setReceivedMessages(prevMessages => {
+                    const isDuplicate = prevMessages.some(message => message.id === data.id)
+
+                    if (!isDuplicate) {
+                        return [...prevMessages, data]
+                    }
+                    return prevMessages
+                })
+            }
+            catch(e) {
+            //
+            }
         }
 
         setSocket(socket)
-    }, [ ])
+    }, [ setReceivedMessages, setSocket ])
 
     const fetchUser = useCallback(async () => {
         try {
@@ -50,8 +55,19 @@ export default function Chat() {
                 setChatPool(data)
             }
         } catch (error) {
-            console.log("Error occured while getting user pool for chat!")
+            console.log("Error occurred while getting user pool for chat!")
         }
+    }, [ ])
+
+    const fetchDirectMessages = useCallback(async (chat) => {
+        const response = await fetch(`http://localhost:8000/api/v1/chat/direct/${chat.owner.id}/`, {
+            method: "GET",
+            headers: { "Content-type": "application/json" },
+            credentials: "include",
+        })
+
+        const data = await response.json()
+        setReceivedMessages(data)
     }, [ ])
 
     useEffect(() => {
@@ -72,6 +88,7 @@ export default function Chat() {
                             onClick={
                                 () => {
                                     setChat(chat)
+                                    fetchDirectMessages(chat)
                                     connectWebsocket(chat.owner.id)
                                 }
                             }
@@ -89,6 +106,7 @@ export default function Chat() {
                         socket={ socket }
                         chat={ chat }
                         receivedMessages={ receivedMessages }
+                        setReceivedMessages={ setReceivedMessages }
                     />
                 </div> }
             </Fragment> }

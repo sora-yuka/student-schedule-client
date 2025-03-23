@@ -3,10 +3,10 @@ import { useState, useEffect, useCallback, useRef, Fragment } from 'react'
 import './Chat.window.css'
 
 
-export default function ChatWindow({ socket, chat, receivedMessages}) {
+export default function ChatWindow({ socket, chat, receivedMessages, setReceivedMessages }) {
     const chatMessagesRef = useRef(null)
 
-    const sendMessage = useCallback(message => {
+    const sendMessage = useCallback(async message => {
         if (socket && socket.readyState === WebSocket.OPEN) {
             socket.send(JSON.stringify(
                 { "message": message },
@@ -14,7 +14,14 @@ export default function ChatWindow({ socket, chat, receivedMessages}) {
         } else {
             console.error("Websocket is not opened")
         }
-    }, [ socket ]);
+        const response = await fetch(`http://localhost:8000/api/v1/chat/direct/${chat.owner.id}/`, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",
+        })
+        const data = await response.json()
+        setReceivedMessages(data)
+    }, [ socket ])
 
     useEffect(() => {
         if (chatMessagesRef.current) {
@@ -29,50 +36,20 @@ export default function ChatWindow({ socket, chat, receivedMessages}) {
                 <h4 className="chat-window__username">{ chat.owner.username }</h4>
             </div>
 
-            {/*<ul className="chat-window__messages" ref={ chatMessagesRef }>*/}
-            {/*    { receivedMessages.map((message, id) => (*/}
-            {/*        <li key={ id }> { message } </li>*/}
-            {/*    )) }*/}
-            {/*</ul>*/}
-
-            {/*<ul className="chat-window__messages" ref={ chatMessagesRef }>*/}
-            {/*    { receivedMessages.map((receivedMessage, id) => {*/}
-            {/*        receivedMessage.receiver == chat.owner.email && (*/}
-            {/*            <li*/}
-            {/*                key={ id }*/}
-            {/*                className={*/}
-            {/*                    chat.owner.email == receivedMessage.sender ? "chat-window__message" : "chat-window__own-message"*/}
-            {/*                }*/}
-            {/*            >*/}
-            {/*                <div className="message">*/}
-            {/*                    <p className="content">{ receivedMessage.content }</p>*/}
-            {/*                    <span className="time">{ receivedMessage.time }</span>*/}
-            {/*                    { console.log(receivedMessage) }*/}
-            {/*                </div>*/}
-            {/*            </li>*/}
-            {/*        )*/}
-            {/*    } }*/}
-            {/*</ul>*/}
-
-            {/*<ul className="chat-window__messages" ref={chatMessagesRef}>*/}
-            {/*    {receivedMessages*/}
-            {/*        .filter((receivedMessage) => receivedMessage.receiver === chat.owner.email)*/}
-            {/*        .map((receivedMessage) => (*/}
-            {/*            <li*/}
-            {/*                key={ receivedMessage.id || receivedMessage.time }*/}
-            {/*                className={*/}
-            {/*                    chat.owner.email === receivedMessage.sender*/}
-            {/*                        ? "chat-window__message"*/}
-            {/*                        : "chat-window__own-message"*/}
-            {/*                }*/}
-            {/*            >*/}
-            {/*                <div className="message">*/}
-            {/*                    <p className="content">{receivedMessage.content}</p>*/}
-            {/*                    <span className="time">{receivedMessage.time}</span>*/}
-            {/*                </div>*/}
-            {/*            </li>*/}
-            {/*        ))}*/}
-            {/*</ul>*/}
+            { <ul className="chat-window__messages" ref={ chatMessagesRef }>
+                { receivedMessages
+                    .map((receivedMessage) => (
+                        <li
+                            key={ receivedMessage.id || receivedMessage.time }
+                            className={ receivedMessage.sender === receivedMessage.current_user ? "chat-window__own-message" : "chat-window__message" }
+                        >
+                            <div className="message">
+                                <p className="content">{receivedMessage.content}</p>
+                                <span className="time">{receivedMessage.time}</span>
+                            </div>
+                        </li>
+                    )) }
+            </ul> }
 
             <input
                 type="text"

@@ -16,6 +16,8 @@
 
 .chat-window__user-photo {
     width: 60px;
+    height: 60px;
+    object-fit: cover;
     border-radius: calc(100% - 50%);
 }
 
@@ -40,6 +42,7 @@
 }
 
 .chat-window__message {
+    width: 100%;
     padding-bottom: 5px;
 
     display: flex;
@@ -48,6 +51,7 @@
 }
 
 .chat-window__own-message {
+    width: 100%;
     padding-right: 30px;
     padding-bottom: 5px;
 

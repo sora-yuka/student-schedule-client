@@ -26,8 +26,9 @@
 }
 
 .profile-photo {
-    height: 60px;
     width: 60px;
+    height: 60px;
+    object-fit: cover;
     border-radius: 10px;
     transition: all 300ms;
 }
