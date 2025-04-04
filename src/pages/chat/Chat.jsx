@@ -11,16 +11,16 @@ export default function Chat() {
     const [ chat, setChat ] = useState(null)
 
     const connectWebsocket = useCallback(async id => {
-        const token = localStorage.getItem("token")
+        const token = localStorage.getItem("access_token")
         const socket = new WebSocket(
-            `ws://127.0.0.1:8000/ws/chat/${id}/`,
+            `ws://192.168.31.169:8000/ws/chat/${id}/`,
             [ "Bearer", token ]
         )
 
         socket.onmessage = (e) => {
             try {
                 const data = JSON.parse(e.data)
-                fetchDirectMessages(chat)
+
                 setReceivedMessages(prevMessages => {
                     const isDuplicate = prevMessages.some(message => message.id === data.id)
 
@@ -29,6 +29,8 @@ export default function Chat() {
                     }
                     return prevMessages
                 })
+
+                fetchDirectMessages(chat)
             }
             catch(e) {
             //
@@ -42,8 +44,10 @@ export default function Chat() {
         try {
             const response = await fetch("http://localhost:8000/api/v1/profile/", {
                 method: "GET",
-                headers: { "Content-type": "application/json" },
-                credentials: "include",
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization": "Bearer " + localStorage.getItem("access_token"),
+                },
             })
 
             if (!response.ok) {
@@ -62,8 +66,10 @@ export default function Chat() {
     const fetchDirectMessages = useCallback(async (chat) => {
         const response = await fetch(`http://localhost:8000/api/v1/chat/direct/${chat.owner.id}/`, {
             method: "GET",
-            headers: { "Content-type": "application/json" },
-            credentials: "include",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("access_token"),
+            },
         })
 
         const data = await response.json()

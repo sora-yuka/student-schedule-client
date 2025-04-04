@@ -8,14 +8,17 @@ export const AuthProvider = ({ children }) => {
     const [ isAuthenticated, setIsAuthenticated ] = useState(false)
     const navigate = useNavigate()
 
-    const baseUrl = "http://localhost:8000/api/v1/account/"
+    // const baseUrl = "http://localhost:8000/api/v1/account/"
+    const baseUrl = "http://192.168.31.169:8000/api/v1/account/"
 
     useEffect(() => {
         async function checkAuth() {
             const response = await fetch(baseUrl + "check-auth/", {
                 method: "GET",
-                headers: { "Content-type": "application/json" },
-                credentials: "include",
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization": "Bearer " + localStorage.getItem("access_token"),
+                },
             })
 
             if (response.status === 401) {
@@ -45,10 +48,12 @@ export const AuthProvider = ({ children }) => {
     }, [ navigate ])
 
     async function refreshToken() {
+        let refresh_token = localStorage.getItem("refresh_token")
+
         const response = await fetch(baseUrl + "refresh/", {
             method: "POST",
             headers: { "Content-type": "application/json" },
-            credentials: "include",
+            body: JSON.stringify({ refresh_token })
         })
 
         if (!response.ok) {
@@ -63,7 +68,6 @@ export const AuthProvider = ({ children }) => {
             method: "POST",
             headers: { "Content-type": "application/json" },
             body: JSON.stringify({ email, password }),
-            credentials: "include"
         })
 
         if (!response.ok) {
@@ -71,21 +75,18 @@ export const AuthProvider = ({ children }) => {
             throw new Error("User with given credentials not found")
         }
         const data = await response.json()
-        localStorage.setItem("token", data["ACCESS TOKEN"])
+        localStorage.setItem("access_token", data["access"])
+        localStorage.setItem("refresh_token", data["refresh"])
         setIsAuthenticated(true)
         return response
     }
 
     async function logout() {
-        const response = await fetch(baseUrl + "logout/", {
-            method: "POST",
-            headers: { "Content-type": "application/json" },
-            credentials: "include",
-        })
+        localStorage.removeItem("access_token")
+        localStorage.removeItem("refresh_token")
 
         setIsAuthenticated(false)
         navigate("/login")
-        return response
     }
 
     return (

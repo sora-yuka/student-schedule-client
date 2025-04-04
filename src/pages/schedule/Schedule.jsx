@@ -10,10 +10,12 @@ export default function Schedule() {
 
     const fetchSchedule = useCallback(async () => {
         try {
-            const response = await fetch("http://localhost:8000/api/v1/schedule/", {
+            const response = await fetch("http://192.168.31.169:8000/api/v1/schedule/", {
                 method: "GET",
-                headers: { "Content-type": "application/json" },
-                credentials: "include",
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization": "Bearer " + localStorage.getItem("access_token"),
+                },
             })
 
             if (response.status === 200) {

@@ -44,7 +44,7 @@ export default function Login() {
             <div className="login-container">
                 <div className="login__row">
                     <div className="login__content">
-                        <h2 className="login__headline">Hello again 👋🏻</h2>
+                        <h2 className="login__headline">Hello again 👋</h2>
                         <form className="login__form" onSubmit={ handleSubmit }>
                             <input 
                                 type="text" 

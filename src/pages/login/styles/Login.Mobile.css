@@ -1,0 +1,44 @@
+@media screen and (max-width: 915px) {
+    .login {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+    }
+
+    .login-container {
+        padding: 0 !important;
+        height: 100vh;
+    }
+
+    .login__row {
+        margin: 0;
+        display: grid;
+        grid-template-areas:
+            "login__background"
+            "login__content";
+    }
+
+    .login__content {
+        grid-area: login__content;
+
+        padding: 0;
+        margin-top: 30px;
+    }
+
+    .login__headline {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .login__form {
+        display: flex;
+        align-items: center;
+    }
+
+    .login__background {
+        grid-area: login__background;
+
+        height: 50vh;
+        border-radius: 0 !important;
+    }
+}

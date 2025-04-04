@@ -16,8 +16,10 @@ export default function ChatWindow({ socket, chat, receivedMessages, setReceived
         }
         const response = await fetch(`http://localhost:8000/api/v1/chat/direct/${chat.owner.id}/`, {
             method: "GET",
-            headers: { "Content-Type": "application/json" },
-            credentials: "include",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("access_token"),
+            },
         })
         const data = await response.json()
         setReceivedMessages(data)

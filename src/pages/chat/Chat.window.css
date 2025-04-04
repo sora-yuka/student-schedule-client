@@ -35,6 +35,7 @@
 }
 
 .message {
+    max-width: calc(100vw - 60vw);
     padding: 5px 10px;
 
     border-radius: 10px;

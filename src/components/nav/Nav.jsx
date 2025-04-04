@@ -14,8 +14,10 @@ export default function Nav() {
         try {
             const response = await fetch("http://localhost:8000/api/v1/profile/me/", {
                 method: "GET",
-                headers: { "Content-type": "application/json" },
-                credentials: "include",
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization": "Bearer " + localStorage.getItem("access_token"),
+                },
             })
 
             if (!response.ok) {

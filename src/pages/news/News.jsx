@@ -13,8 +13,10 @@ export default function News() {
         try {
             const response = await fetch("http://localhost:8000/api/v1/news/", {
                 method: "GET",
-                headers: { "Content-type": "application/json" },
-                credentials: "include",
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization": "Bearer " + localStorage.getItem("access_token"),
+                },
             })
     
             if (response.status === 200) {
