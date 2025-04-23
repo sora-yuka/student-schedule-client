@@ -3,10 +3,6 @@
         display: none;
     }
 
-    .content-row {
-        display: none;
-    }
-
     .main-wrapper {
         grid-template-columns: 1fr;
         grid-template-areas:

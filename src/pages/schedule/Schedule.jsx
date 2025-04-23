@@ -1,10 +1,12 @@
 import { useState, useEffect, useCallback, Fragment } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 import './Schedule.css'
 
 
 export default function Schedule() {
+    const today = new Date()
+    const dayOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
     const [ schedule, setSchedule ] = useState(null)
     const [ day, setDay ] = useState("Monday")
 
@@ -29,6 +31,7 @@ export default function Schedule() {
 
     useEffect(() => {
         fetchSchedule()
+        setDay(dayOfWeek[today.getDay() - 1])
     }, [ fetchSchedule ])
 
     return (
@@ -37,13 +40,17 @@ export default function Schedule() {
                 <Fragment>
                     <div className="schedule__secondary">
                         <div className="day">
-                            <select className="day__headline" onChange={ (event) => { setDay(event.target.value) } }>
-                                <option value="Monday">Monday</option>
-                                <option value="Tuesday">Tuesday</option>
-                                <option value="Wednesday">Wednesday</option>
-                                <option value="Thursday">Thursday</option>
-                                <option value="Friday">Friday</option>
-                                <option value="Saturday">Saturday</option>
+                            <select
+                                className="day__headline"
+                                onChange={ (event) => { setDay(event.target.value) } }
+                                value={ day }
+                            >
+                                <option value="Monday">Понедельник</option>
+                                <option value="Tuesday">Вторник</option>
+                                <option value="Wednesday">Среда</option>
+                                <option value="Thursday">Четверг</option>
+                                <option value="Friday">Пятница</option>
+                                <option value="Saturday">Суббота</option>
                             </select>
                         </div>  
                         <ul className="secondary__list">

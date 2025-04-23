@@ -60,11 +60,12 @@
 
         top: 0;
         right: -100vw;
-        font-size: 20px;
+        font-size: 18px;
         gap: 20px;
 
         transition: all 0.3s;
-        background-color: #C0C0C0;
+        background-color: var(--off-screen-menu);
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     }
 
     .off-screen-menu.active {
