@@ -9,6 +9,7 @@ export default function Nav() {
     const { isAuthenticated, logout } = useAuth()
     const [ profile, setProfile ] = useState(null)
     const [ isOpen, setIsOpen ] = useState(false)
+    const [ isBurger, setIsBurger ] = useState(false)
 
     const fetchUser = useCallback(async () => {
         try {
@@ -42,10 +43,24 @@ export default function Nav() {
     return (
         <nav className="nav">
             <div className="container">
+                <div className="off-screen-menu">
+                    <ul className={ isBurger ? "off-screen-menu active" : "off-screen-menu" }>
+                        <li className="off-screen-menu__item">sample #1</li>
+                        <li className="off-screen-menu__item">sample #2</li>
+                        <li className="off-screen-menu__item">sample #3</li>
+                    </ul>
+                </div>
                 <div className="nav-row">
                     <ul className="nav-list">
                         <span className="site-headline"><strong>Edu.</strong>hub</span>
                         <li className="nav-list__item">
+                            <div className={ isBurger ? "btn-burger active" : "btn-burger" }
+                                 onClick={ () => setIsBurger(!isBurger) }
+                            >
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
                             { profile && (
                                 <Fragment>
                                     <Button 

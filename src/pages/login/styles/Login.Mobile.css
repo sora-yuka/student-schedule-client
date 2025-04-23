@@ -1,13 +1,14 @@
 @media screen and (max-width: 915px) {
     .login {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: start;
+        min-height: 100vh;
     }
 
     .login-container {
         padding: 0 !important;
-        height: 100vh;
+        min-height: 100vh;
     }
 
     .login__row {
@@ -21,7 +22,7 @@
     .login__content {
         grid-area: login__content;
 
-        padding: 0;
+        padding: 20px;
         margin-top: 30px;
     }
 
@@ -38,7 +39,8 @@
     .login__background {
         grid-area: login__background;
 
-        height: 50vh;
+        height: 35vh;
+        background-size: cover;
         border-radius: 0 !important;
     }
 }

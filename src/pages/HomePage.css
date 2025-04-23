@@ -1,9 +1,2 @@
-.main-wrapper {
-    min-height: 100vh;
-    
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-areas: 
-        "sidebar nav"
-        "sidebar content";
-}
+@import url("./styles/HomePage.Desktop.css");
+@import url("./styles/HomePage.Mobile.css");

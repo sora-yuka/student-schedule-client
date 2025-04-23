@@ -1,0 +1,16 @@
+@media screen and (max-width: 915px) {
+    .sidebar {
+        display: none;
+    }
+
+    .content-row {
+        display: none;
+    }
+
+    .main-wrapper {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "nav"
+            "content";
+    }
+}
