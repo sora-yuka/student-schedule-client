@@ -76,6 +76,7 @@
     .subject-additional {
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
     
     .subject-type__value {
