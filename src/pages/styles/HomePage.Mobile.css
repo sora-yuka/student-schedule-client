@@ -9,4 +9,8 @@
             "nav"
             "content";
     }
+
+    .container {
+        max-width: 915px;
+    }
 }

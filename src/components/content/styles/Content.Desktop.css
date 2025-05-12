@@ -1,0 +1,22 @@
+.content-row {
+    max-width: 1400px;
+    margin: 20px 0;
+}
+
+.content-container {
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 1400px;
+    min-width: 1200px;
+    max-height: calc(100vh - 14vh);
+    overflow-x: hidden;
+    background-color: var(--container-background-color);
+}
+
+.content-row__mobile {
+    display: none;
+}
+
+.content-container__mobile {
+    display: none;
+}
