@@ -41,6 +41,8 @@
         flex-direction: column;
 
         gap: 10px;
+        max-height: 73vh;
+        overflow-x: hidden;
     }
 
     .schedule-block__item {
