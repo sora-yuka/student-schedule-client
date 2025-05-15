@@ -30,3 +30,16 @@
     color: red;
     background-color: var(--background-color);
 }
+
+.btn__nav {
+    display: flex;
+    align-items: center;
+    opacity: .4;
+    transition: ease-in-out .2s;
+}
+
+.btn__nav.active {
+    opacity: 1;
+    color: var(--off-screen-active-color);
+    font-weight: 700;
+}

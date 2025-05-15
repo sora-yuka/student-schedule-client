@@ -18,7 +18,7 @@ export default function HomePage() {
                 setContentHeadline={ setContentHeadline } 
             />
             <div className="main">
-                <Nav />
+                <Nav activeContent={activeContent} setActiveContent={setActiveContent} />
                 <div className="container">
                     <Content activeContent={ activeContent } contentHeadline={ contentHeadline } />
                 </div>

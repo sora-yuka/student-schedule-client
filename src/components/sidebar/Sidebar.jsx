@@ -42,13 +42,13 @@ export default function Sidebar({ activeContent, setActiveContent, setContentHea
                             </Button>
                         </li>
                         <li className="sidebar-list__item">
-                        <Button 
-                            className={ activeContent === "news" ? activeButton : inActiveButton }
-                            onClick={ () => {
-                                setActiveContent("news")
-                                setContentHeadline("Новости")
-                            } }
-                        >
+                            <Button
+                                className={ activeContent === "news" ? activeButton : inActiveButton }
+                                onClick={ () => {
+                                    setActiveContent("news")
+                                    setContentHeadline("Новости")
+                                } }
+                            >
                                 <img 
                                     src="./icons/news.svg" 
                                     alt="news icon" 

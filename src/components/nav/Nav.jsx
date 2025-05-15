@@ -5,7 +5,7 @@ import Button from '../../components/button/Button'
 import './Nav.css'
 
 
-export default function Nav() {
+export default function Nav({ activeContent,  setActiveContent }) {
     const { isAuthenticated, logout } = useAuth()
     const [ profile, setProfile ] = useState(null)
     const [ isOpen, setIsOpen ] = useState(false)
@@ -45,9 +45,43 @@ export default function Nav() {
             <div className="container">
                 <div className="off-screen-menu">
                     <ul className={ isBurger ? "off-screen-menu active" : "off-screen-menu" }>
-                        <li className="off-screen-menu__item">sample #1</li>
-                        <li className="off-screen-menu__item">sample #2</li>
-                        <li className="off-screen-menu__item">sample #3</li>
+                        <li className="off-screen-menu__item">
+                            <Button
+                                className={ activeContent === "schedule" ? "btn__nav active" : "btn__nav" }
+                                onClick={ () => { setActiveContent("schedule") } }
+                            >
+                                <img
+                                    src="./icons/schedule-icon.svg"
+                                    alt="schedule icon"
+                                />
+                                Расписание
+                            </Button>
+                        </li>
+                        <li className="off-screen-menu__item">
+                            <Button
+                                className={ activeContent === "news" ? "btn__nav active" : "btn__nav" }
+                                onClick={ () => { setActiveContent("news") } }
+                            >
+                            <img
+                                src="./icons/news.svg"
+                                alt="news icon"
+                            />
+                                Нововсти
+                            </Button>
+                        </li>
+                        <li className="off-screen-menu__item">
+                            <Button
+                                className={ activeContent === "chat" ? "btn__nav active" : "btn__nav" }
+                                onClick={ () => { setActiveContent("chat") } }
+                            >
+                            <img
+                                src="./icons/chat-icon.svg"
+                                alt="chat icon"
+                                // className={ activeContent === "chat" ?  activeButtonIcon : inActiveButtonIcon }
+                            />
+                                Чат
+                            </Button>
+                        </li>
                     </ul>
                 </div>
                 <div className="nav-row">
