@@ -85,6 +85,10 @@ export default function News() {
                                     </div>
                             </div>
                             <div className="news-detail__content">
+                                <div className="news-detail__preview">
+                                    <img src={ newsDetail.preview } alt=""/>
+                                </div>
+
                                 <p className="news-detail__text">{ newsDetail.content }</p>
 
                                 <div className="news-detail__links">
