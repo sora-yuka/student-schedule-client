@@ -4,6 +4,30 @@
     }
 
     .news-card {
-        all: unset;
+        display: none;
+    }
+
+    .news-card__mobile {
+        display: grid;
+        grid-template-areas: "news-card__preview news-card__header";
+        padding: 7px;
+        border-radius: 7px;
+        background-color: var(--container-background-color);
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    }
+
+    .news-card__preview {
+        margin-right: 10px;
+    }
+
+    .news-card__preview img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .news-card__header {
+        font-weight: bold;
     }
 }

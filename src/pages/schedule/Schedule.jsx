@@ -27,7 +27,7 @@ export default function Schedule() {
                 setSchedule(data[0])
             }
         } catch (error) {
-            console.log("An error occured while getting schedule data")
+            console.log(error)
         }
     }, [ ])
 

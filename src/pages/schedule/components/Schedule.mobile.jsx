@@ -1,6 +1,7 @@
 import { Fragment } from 'react'
 
 
+// eslint-disable-next-line react/prop-types
 export default function ScheduleMobile({ schedule, day, setDay }) {
     return (
         <div className="schedule-row__mobile">

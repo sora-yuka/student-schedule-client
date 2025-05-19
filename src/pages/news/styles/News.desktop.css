@@ -1,3 +1,7 @@
+.news-card__mobile {
+    display: none;
+}
+
 .news-row {
     display: grid;
     grid-template-columns: auto auto auto auto;

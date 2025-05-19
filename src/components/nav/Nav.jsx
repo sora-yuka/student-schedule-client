@@ -5,6 +5,7 @@ import Button from '../../components/button/Button'
 import './Nav.css'
 
 
+// eslint-disable-next-line react/prop-types
 export default function Nav({ activeContent,  setActiveContent }) {
     const { isAuthenticated, logout } = useAuth()
     const [ profile, setProfile ] = useState(null)
@@ -48,7 +49,10 @@ export default function Nav({ activeContent,  setActiveContent }) {
                         <li className="off-screen-menu__item">
                             <Button
                                 className={ activeContent === "schedule" ? "btn__nav active" : "btn__nav" }
-                                onClick={ () => { setActiveContent("schedule") } }
+                                onClick={ () => {
+                                    setActiveContent("schedule")
+                                    setIsBurger(false)
+                                } }
                             >
                                 <img
                                     src="./icons/schedule-icon.svg"
@@ -60,7 +64,10 @@ export default function Nav({ activeContent,  setActiveContent }) {
                         <li className="off-screen-menu__item">
                             <Button
                                 className={ activeContent === "news" ? "btn__nav active" : "btn__nav" }
-                                onClick={ () => { setActiveContent("news") } }
+                                onClick={ () => {
+                                    setActiveContent("news")
+                                    setIsBurger(false)
+                                } }
                             >
                             <img
                                 src="./icons/news.svg"
@@ -72,7 +79,10 @@ export default function Nav({ activeContent,  setActiveContent }) {
                         <li className="off-screen-menu__item">
                             <Button
                                 className={ activeContent === "chat" ? "btn__nav active" : "btn__nav" }
-                                onClick={ () => { setActiveContent("chat") } }
+                                onClick={ () => {
+                                    setActiveContent("chat")
+                                    setIsBurger(false)
+                                } }
                             >
                             <img
                                 src="./icons/chat-icon.svg"
