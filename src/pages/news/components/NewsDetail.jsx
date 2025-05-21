@@ -8,7 +8,7 @@ export default function NewsDetail({ newsId, setIsNewsOpened }) {
 
     const fetchNewsDetail = useCallback(async () => {
         try {
-            const response = await fetch(`http://localhost:8000/api/v1/news/${newsId}/`, {
+            const response = await fetch(`http://192.168.31.169:8000/api/v1/news/${newsId}/`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -41,7 +41,8 @@ export default function NewsDetail({ newsId, setIsNewsOpened }) {
                                 setNewsDetail(null)
                             } }
                         >
-                            ⟵
+                            <span className="arrow">⟵</span>
+                            <span className="arrow--mobile"><img src="/icons/back.png" alt=""/></span>
                         </Button>
                         <h3 className="news-detail__headline">{ newsDetail.header }</h3>
                     </div>

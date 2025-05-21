@@ -49,3 +49,27 @@
     box-shadow: none;
     transform: translateY(0);
 }
+
+.btn__go-back__mobile {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .arrow {
+        display: none;
+    }
+
+    .btn__go-back {
+        all: unset;
+        padding-bottom: 15px;
+    }
+
+    .arrow--mobile {
+        display: block;
+    }
+
+    .arrow--mobile img {
+        width: 40px;
+        height: 40px;
+    }
+}

@@ -10,6 +10,7 @@ async function fetchUser() {
 
         if (response.status === 200) {
             const data = await response.json()
+            return data;
         }
     } catch (error) {
         console.error(error)
