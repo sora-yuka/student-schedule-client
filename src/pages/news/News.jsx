@@ -8,19 +8,45 @@ import './News.css'
 
 export default function News() {
     const [isNewsOpened, setIsNewsOpened] = useState(false)
+    const [news, setNews] = useState(null)
     const [newsId, setNewsId] = useState(null)
+
+    const fetchNews = useCallback(async () => {
+        try {
+            const response = await fetch("http://192.168.31.169:8000/api/v1/news/", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + localStorage.getItem("access_token"),
+                },
+            })
+
+            if (response.status === 200) {
+                const data = await response.json()
+                setNews(data)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    })
+
+    useEffect(() => {
+        fetchNews()
+    }, [ ])
 
     return (
         <div className="news-row">
             { !isNewsOpened ?
                 <Fragment>
                     <NewsDesktop
+                        news={ news }
+                        setNewsId={ setNewsId }
                         setIsNewsOpened={ setIsNewsOpened }
-                        setNewsId = { setNewsId }
                     />
                     <NewsMobile
+                        news={ news }
+                        setNewsId={ setNewsId }
                         setIsNewsOpened={ setIsNewsOpened }
-                        setNewsId = { setNewsId }
                     />
                 </Fragment>
                 :

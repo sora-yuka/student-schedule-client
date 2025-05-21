@@ -3,32 +3,7 @@ import Button from '../../../components/button/Button'
 
 
 // eslint-disable-next-line react/prop-types
-export default function NewsDesktop({ setIsNewsOpened, setNewsId }) {
-    const [news, setNews] =  useState(null)
-
-    const fetchNews = useCallback(async () => {
-        try {
-            const response = await fetch("http://localhost:8000/api/v1/news/", {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": "Bearer " + localStorage.getItem("access_token"),
-                },
-            })
-
-            if (response.status === 200) {
-                const data = await response.json()
-                setNews(data)
-            }
-        } catch (error) {
-            console.log(error)
-        }
-    })
-
-    useEffect(() => {
-        fetchNews()
-    }, [ ])
-
+export default function NewsDesktop({ news, setIsNewsOpened,  setNewsId }) {
     return (
         <Fragment>
             { news && (
@@ -40,6 +15,7 @@ export default function NewsDesktop({ setIsNewsOpened, setNewsId }) {
                         <p className="news-card__content">
                             { singleNews.content.slice(0, 100) + " ..." }
                         </p>
+                        { console.log(singleNews.id) }
                         <Button
                             className="btn__read-news"
                             onClick={ () => {
