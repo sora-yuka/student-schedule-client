@@ -13,7 +13,7 @@ export default function News() {
 
     const fetchNews = useCallback(async () => {
         try {
-            const response = await fetch("http://192.168.31.169:8000/api/v1/news/", {
+            const response = await fetch(import.meta.env.VITE_API_ENDPOINT + "news/", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

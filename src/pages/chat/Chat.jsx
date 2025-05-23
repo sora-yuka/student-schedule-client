@@ -13,7 +13,7 @@ export default function Chat() {
     const connectWebsocket = useCallback(async id => {
         const token = localStorage.getItem("access_token")
         const socket = new WebSocket(
-            `ws://192.168.31.169:8000/ws/chat/${id}/`,
+            import.meta.env.VITE_WS_ENDPOINT + `${id}/`,
             [ "Bearer", token ]
         )
 

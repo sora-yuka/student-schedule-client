@@ -9,7 +9,8 @@ export const AuthProvider = ({ children }) => {
     const navigate = useNavigate()
 
     // const baseUrl = "http://localhost:8000/api/v1/account/"
-    const baseUrl = "http://192.168.31.169:8000/api/v1/account/"
+    // const baseUrl = "http://192.168.31.169:8000/api/v1/account/"
+    const baseUrl = import.meta.env.VITE_API_ENDPOINT + "account/"
 
     useEffect(() => {
         async function checkAuth() {

@@ -1,10 +1,15 @@
+x-client-variables: &client-variables
+  VITE_API_ENDPOINT: http://172.20.0.5:8000/api/v1/
+
+
 services:
   client:
     build:
       context: .
     container_name: client
+    environment: *client-variables
     ports:
-      - "3000:3000"
+      - "8080:8080"
     networks:
       custom_network:
         ipv4_address: 172.20.0.5

@@ -8,7 +8,7 @@ export default function NewsDetail({ newsId, setIsNewsOpened }) {
 
     const fetchNewsDetail = useCallback(async () => {
         try {
-            const response = await fetch(`http://192.168.31.169:8000/api/v1/news/${newsId}/`, {
+            const response = await fetch(import.meta.env.VITE_API_ENDPOINT + `news/${newsId}/`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

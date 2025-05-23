@@ -14,7 +14,7 @@ export default function ChatWindow({ socket, chat, receivedMessages, setReceived
         } else {
             console.error("Websocket is not opened")
         }
-        const response = await fetch(`http://localhost:8000/api/v1/chat/direct/${chat.owner.id}/`, {
+        const response = await fetch(import.meta.env.VITE_API_ENDPOINT + `/chat/direct/${chat.owner.id}/`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
