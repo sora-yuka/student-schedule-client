@@ -1,7 +1,5 @@
 .news-detail {
     height: 100vh;
-    overflow-x: hidden;
-    padding-bottom: 20vh;
 }
 
 .news-detail__preview {
@@ -41,11 +39,20 @@
 }
 
 .news-detail__links {
-    padding-top: 20px;
+    padding: 20px 0;
     font-size: 14px;
 }
 
+.arrow--mobile {
+    display: none;
+}
+
 @media screen and (max-width: 800px) {
+    .news-detail {
+        overflow-x: hidden;
+        padding-bottom: 20vh;
+    }
+
     .news-detail__heading {
         display: block;
     }
