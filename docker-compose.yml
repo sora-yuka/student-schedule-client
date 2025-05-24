@@ -1,5 +1,6 @@
 x-client-variables: &client-variables
   VITE_API_ENDPOINT: http://172.20.0.5:8000/api/v1/
+  VITE_WS_ENDPOINT: ws://172.20.0.5:8000/ws/chat/
 
 
 services:
