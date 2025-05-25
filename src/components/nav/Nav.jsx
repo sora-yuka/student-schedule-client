@@ -14,7 +14,7 @@ export default function Nav({ activeContent,  setActiveContent }) {
 
     const fetchUser = useCallback(async () => {
         try {
-            const response = await fetch("http://192.168.31.169:8000/api/v1/profile/me/", {
+            const response = await fetch(import.meta.env.VITE_API_ENDPOINT + "profile/me/", {
                 method: "GET",
                 headers: {
                     "Content-type": "application/json",
