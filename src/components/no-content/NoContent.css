@@ -1,0 +1,22 @@
+.no-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0;
+}
+
+.no-content__image {
+    height: 200px;
+    width: 200px;
+    opacity: .8;
+    background-size: cover;
+    background-image: url("/images/no-content.png");
+}
+
+.no-content__header {
+    text-align: center;
+    font-size: 42px;
+    font-weight: bold;
+    opacity: .8;
+}

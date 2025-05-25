@@ -2,6 +2,7 @@ import { Fragment, useCallback, useEffect, useState } from 'react'
 import NewsDesktop from './components/News.desktop.jsx'
 import NewsMobile from './components/News.mobile.jsx'
 import NewsDetail from './components/NewsDetail.jsx'
+import NoContent from '../../components/no-content/NoContent.jsx'
 
 import './News.css'
 
@@ -35,26 +36,32 @@ export default function News() {
     }, [ ])
 
     return (
-        <div className="news-row">
-            { !isNewsOpened ?
-                <Fragment>
-                    <NewsDesktop
-                        news={ news }
-                        setNewsId={ setNewsId }
-                        setIsNewsOpened={ setIsNewsOpened }
-                    />
-                    <NewsMobile
-                        news={ news }
-                        setNewsId={ setNewsId }
-                        setIsNewsOpened={ setIsNewsOpened }
-                    />
-                </Fragment>
-                :
-                <NewsDetail
-                    newsId={ newsId }
-                    setIsNewsOpened={ setIsNewsOpened }
-                />
-            }
-        </div>
+        <Fragment>
+            { news ? (
+                <div className="news-row">
+                    { !isNewsOpened ? (
+                        <Fragment>
+                        <NewsDesktop
+                            news={ news }
+                            setNewsId={ setNewsId }
+                            setIsNewsOpened={ setIsNewsOpened }
+                        />
+                        <NewsMobile
+                            news={ news }
+                            setNewsId={ setNewsId }
+                            setIsNewsOpened={ setIsNewsOpened }
+                        />
+                    </Fragment>
+                    ) : (
+                        <NewsDetail 
+                            newsId={ newsId }
+                            setIsNewsOpened={ setIsNewsOpened }
+                        />
+                    ) }
+                </div>
+            ) : (
+                <NoContent />
+            ) }
+        </Fragment>
     )
 }

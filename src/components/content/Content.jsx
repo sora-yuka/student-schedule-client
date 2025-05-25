@@ -1,5 +1,6 @@
 import Schedule from '../../pages/schedule/Schedule'
 import News from '../../pages/news/News'
+import Course from '../../pages/course/Course'
 import Chat from '../../pages/chat/Chat'
 
 import './Content.css'
@@ -17,6 +18,9 @@ export default function Content({ activeContent, contentHeadline }) {
                     ) }
                     { activeContent === "news" && (
                         <News />
+                    ) }
+                    { activeContent === "course" && (
+                        <Course />
                     ) }
                     { activeContent === "chat" && (
                         <Chat />

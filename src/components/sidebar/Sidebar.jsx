@@ -58,6 +58,21 @@ export default function Sidebar({ activeContent, setActiveContent, setContentHea
                             </Button>
                         </li>
                         <li className="sidebar-list__item">
+                            <Button
+                                className={ activeContent === "course" ? activeButton : inActiveButton }
+                                onClick={ () => {
+                                    setActiveContent("course")
+                                } }
+                            >
+                                <img 
+                                    src="./icons/ebook.png" 
+                                    alt="" 
+                                    className={ activeContent === "course" ? activeButtonIcon : inActiveButtonIcon }
+                                />
+                                Курсы
+                            </Button>
+                        </li>
+                        <li className="sidebar-list__item">
                             <Button 
                                 className={ activeContent === "chat" ? activeButton : inActiveButton }
                                 onClick={ () => {
