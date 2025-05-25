@@ -10,7 +10,7 @@ export default function Schedule() {
     const dayOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
     const [ schedule, setSchedule ] = useState(null)
-    const [ day, setDay ] = useState("Monday")
+    const [ day, setDay ] = useState(null)
 
     const fetchSchedule = useCallback(async () => {
         try {
@@ -26,6 +26,12 @@ export default function Schedule() {
                 const data = await response.json()
                 setSchedule(data[0])
             }
+
+            if (today.getDay() === 0) {
+                setDay(dayOfWeek[0])
+            } else {
+                setDay(dayOfWeek[today.getDay() - 1])
+            }
         } catch (error) {
             console.log(error)
         }
@@ -33,7 +39,6 @@ export default function Schedule() {
 
     useEffect(() => {
         fetchSchedule()
-        setDay(dayOfWeek[today.getDay() - 1])
     }, [ fetchSchedule ])
 
     return (
@@ -41,14 +46,14 @@ export default function Schedule() {
             { schedule && (
                 <Fragment>
                     <ScheduleDesktop
-                        schedule={schedule}
-                        day={day}
-                        setDay={setDay}
+                        schedule={ schedule }
+                        day={ day }
+                        setDay={ setDay }
                     />
                     <ScheduleMobile
-                        schedule={schedule}
-                        day={day}
-                        setDay={setDay}
+                        schedule={ schedule }
+                        day={ day }
+                        setDay={ setDay }
                     />
                 </Fragment>
             ) }
