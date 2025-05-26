@@ -16,6 +16,7 @@
     width: 300px;
     padding: 25px;
     color: var(--news-primary-color);
+    border: 1px solid var(--news-secondary-color);
     border-radius: 10px;
     background-color: #E9EAEA;
 }

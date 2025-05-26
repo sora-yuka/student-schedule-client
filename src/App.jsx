@@ -7,16 +7,27 @@ import HomePage from './pages/HomePage'
 import NotFound from './pages/not-found/NotFound'
 import Login from './pages/login/Login'
 
-export default function App() {
+import Schedule from './pages/schedule/Schedule'
+import News from './pages/news/News'
+import Course from './pages/course/Course'
+import Chat from './pages/chat/Chat'
 
+
+export default function App() {
     return (
         <Fragment>
             <BrowserRouter>
                 <AuthProvider>
                     <Routes>
-                        <Route path="/" element={ <HomePage/> }/>
-                        <Route path="/login" element={ <Login/> }/>
-                        <Route path="*" element={ <NotFound/> }/>
+                        <Route path="/" element={ <HomePage/> }>
+                            <Route index element={ <Schedule/> } />
+                            <Route path="news" element={ <News/> } />
+                            <Route path="course" element={ <Course/> } />
+                            <Route path="chat" element={ <Chat/> } />
+                        </Route>
+
+                        <Route path="login" element={ <Login/> } />
+                        <Route path="*" element={ <NotFound/> } />
                     </Routes>
                 </AuthProvider>
             </BrowserRouter>

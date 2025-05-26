@@ -1,0 +1,26 @@
+.course__row {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 20px;
+}
+
+.course__card {
+    padding: 40px;
+}
+
+.course__professor {
+    font-size: 12px;
+}
+
+.course__header {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    border-bottom: 2px solid var(--background-color);
+}
+
+.course__btn {
+    display: flex;
+    justify-content: end;
+}

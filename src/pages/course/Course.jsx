@@ -1,4 +1,5 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
+import CourseDesktop from './components/Course.desktop.jsx'
 import NoContent from '../../components/no-content/NoContent.jsx'
 
 import './Course.css'
@@ -19,7 +20,7 @@ export default function Course() {
     
             if (response.status === 200) {
                 const data = await response.json()
-                // setCourse(data)
+                setCourse(data)
             }
         } catch(error) {
             console.log(error)
@@ -31,14 +32,14 @@ export default function Course() {
     }, [ ])
 
     return (
-        <div className="course__row">
+        <Fragment>
             { course ? (
-                <div className="course">
-                    
+                <div className="course__row">
+                    <CourseDesktop courses={ course } />
                 </div>
             ) : (
                 <NoContent />
             ) }
-        </div>
+        </Fragment>
     )
 }

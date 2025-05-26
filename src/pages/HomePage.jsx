@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Outlet } from 'react-router-dom'
 import Nav from '../components/nav/Nav'
 import Sidebar from '../components/sidebar/Sidebar'
 import Content from '../components/content/Content'
@@ -19,9 +20,7 @@ export default function HomePage() {
             />
             <div className="main">
                 <Nav activeContent={activeContent} setActiveContent={setActiveContent} />
-                <div className="container">
-                    <Content activeContent={ activeContent } contentHeadline={ contentHeadline } />
-                </div>
+                <Outlet />
             </div>
         </div>
     )
