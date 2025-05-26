@@ -9,6 +9,7 @@ import Login from './pages/login/Login'
 
 import Schedule from './pages/schedule/Schedule'
 import News from './pages/news/News'
+import NewsDetail from './pages/news/components/NewsDetail'
 import Course from './pages/course/Course'
 import Chat from './pages/chat/Chat'
 
@@ -21,12 +22,13 @@ export default function App() {
                     <Routes>
                         <Route path="/" element={ <HomePage/> }>
                             <Route index element={ <Schedule/> } />
-                            <Route path="news" element={ <News/> } />
-                            <Route path="course" element={ <Course/> } />
-                            <Route path="chat" element={ <Chat/> } />
+                            <Route path="/news" element={ <News/> } />
+                            <Route path="/news/:newsId" element={ <NewsDetail/> } />
+                            <Route path="/course" element={ <Course/> } />
+                            <Route path="/chat" element={ <Chat/> } />
                         </Route>
 
-                        <Route path="login" element={ <Login/> } />
+                        <Route path="/login" element={ <Login/> } />
                         <Route path="*" element={ <NotFound/> } />
                     </Routes>
                 </AuthProvider>

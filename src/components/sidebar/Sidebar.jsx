@@ -1,15 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Fragment } from 'react'
+import { NavLink } from 'react-router-dom'
 import Button from '../button/Button'
 
 import './Sidebar.css'
 
 
-export default function Sidebar({ activeContent, setActiveContent, setContentHeadline }) {
+export default function Sidebar({ activeContent, setActiveContent }) {
     const [ isDarkMode, setDarkMode ] = useState(false)
-    const inActiveButton = "btn__sidebar"
-    const activeButton = "btn__sidebar--active"
-    const inActiveButtonIcon = "btn__sidebar-icon"
-    const activeButtonIcon = "btn__sidebar-icon--active"
+    const sidebarButton = "btn__sidebar"
+    const sidebarButtonActive = "btn__sidebar--active"
 
     useEffect(() => {
         if (isDarkMode === true) {
@@ -24,7 +23,36 @@ export default function Sidebar({ activeContent, setActiveContent, setContentHea
             <div className="sidebar-container">
                 <div className="sidebar-row">
                     <img src="./icons/hashnode.svg" alt="" className="sidebar__icon" />
-                    <ul className="sidebar-list">
+                    <ul className="sidebar__list">
+                        <li className="sidebar__list-item">
+                            <NavLink
+                                to="/"
+                                className={ ({isActive}) => (isActive ?  sidebarButtonActive : sidebarButton) }
+                            >
+                                <img 
+                                    src="/icons/schedule-icon.svg"
+                                    alt="schedule icon" 
+                                    className="btn__sidebar-icon"
+                                />
+                                Расписание
+                            </NavLink>
+                        </li>
+                        <li className="sidebar__list-item">
+                            <NavLink
+                                to="/news"
+                                className={ ({isActive}) => (isActive ?  sidebarButtonActive : sidebarButton) }
+                            >
+                                <img 
+                                    src="/icons/news.svg"
+                                    alt="news icon" 
+                                    className="btn__sidebar-icon"
+                                />
+                                Новости
+                            </NavLink>
+                        </li>
+                    </ul>
+
+                    {/* <ul className="sidebar-list">
                         <li className="sidebar-list__item"> 
                             <Button 
                                 className={ activeContent === "schedule" ? activeButton : inActiveButton }
@@ -34,7 +62,7 @@ export default function Sidebar({ activeContent, setActiveContent, setContentHea
                                 } }
                             >
                                 <img 
-                                    src="./icons/schedule-icon.svg" 
+                                    src="/icons/schedule-icon.svg"
                                     alt="schedule icon" 
                                     className={ activeContent === "schedule" ?  activeButtonIcon : inActiveButtonIcon } 
                                 /> 
@@ -46,11 +74,10 @@ export default function Sidebar({ activeContent, setActiveContent, setContentHea
                                 className={ activeContent === "news" ? activeButton : inActiveButton }
                                 onClick={ () => {
                                     setActiveContent("news")
-                                    setContentHeadline("Новости")
                                 } }
                             >
                                 <img 
-                                    src="./icons/news.svg" 
+                                    src="/icons/news.svg" 
                                     alt="news icon" 
                                     className={ activeContent === "news" ? activeButtonIcon : inActiveButtonIcon } 
                                 />
@@ -65,7 +92,7 @@ export default function Sidebar({ activeContent, setActiveContent, setContentHea
                                 } }
                             >
                                 <img 
-                                    src="./icons/ebook.png" 
+                                    src="/icons/ebook.png" 
                                     alt="" 
                                     className={ activeContent === "course" ? activeButtonIcon : inActiveButtonIcon }
                                 />
@@ -81,14 +108,15 @@ export default function Sidebar({ activeContent, setActiveContent, setContentHea
                                 } }
                             >
                                 <img 
-                                    src="./icons/chat-icon.svg" 
+                                    src="/icons/chat-icon.svg" 
                                     alt="chat icon" 
                                     className={ activeContent === "chat" ?  activeButtonIcon : inActiveButtonIcon }  
                                 /> 
                                 Чат
                             </Button>
                         </li>
-                    </ul>
+                    </ul> */}
+
                 </div>
                 <div className="sidebar__toggle-theme">
                     <Button

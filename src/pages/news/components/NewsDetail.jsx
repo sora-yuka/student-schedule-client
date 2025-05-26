@@ -1,14 +1,16 @@
 import { Fragment, useCallback, useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import Button from "../../../components/button/Button.jsx"
 
 
 // eslint-disable-next-line react/prop-types
-export default function NewsDetail({ newsId, setIsNewsOpened }) {
+export default function NewsDetail() {
     const [newsDetail, setNewsDetail] = useState(null)
+    const params = useParams()
 
     const fetchNewsDetail = useCallback(async () => {
         try {
-            const response = await fetch(import.meta.env.VITE_API_ENDPOINT + `news/${newsId}/`, {
+            const response = await fetch(import.meta.env.VITE_API_ENDPOINT + `news/${params.newsId}/`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -37,7 +39,6 @@ export default function NewsDetail({ newsId, setIsNewsOpened }) {
                         <Button
                             className="btn__go-back"
                             onClick={ () => {
-                                setIsNewsOpened(false)
                                 setNewsDetail(null)
                             } }
                         >

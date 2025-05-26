@@ -42,9 +42,9 @@ export default function Schedule() {
     }, [ fetchSchedule ])
 
     return (
-        <Fragment>
-            { schedule && (
-                <Fragment>
+        <div className="schedule">
+            { schedule ? (
+                <div className="container">
                     <ScheduleDesktop
                         schedule={ schedule }
                         day={ day }
@@ -55,11 +55,10 @@ export default function Schedule() {
                         day={ day }
                         setDay={ setDay }
                     />
-                </Fragment>
-            ) }
-            { !schedule && (
+                </div>
+             ) : (
                 <div className="loading">Загрузка расписания...</div>
-            ) }
-        </Fragment>
+             ) }
+        </div>
     )
 }

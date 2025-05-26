@@ -1,3 +1,18 @@
+.schedule {
+    margin: 20px 0;
+}
+
+.schedule .container {
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 1400px;
+    min-width: 1200px;
+    max-height: calc(100vh - 14vh);
+    overflow-x: hidden;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    background-color: var(--container-background-color);
+}
+
 /* Primary block */
 
 .schedule-row__mobile {

@@ -2,7 +2,7 @@ import {Fragment, useCallback, useEffect, useState} from 'react'
 
 
 // eslint-disable-next-line react/prop-types
-export default function NewsMobile({ news, setIsNewsOpened, setNewsId }) {
+export default function NewsMobile({ news }) {
     return (
         <Fragment>
             { news && (

@@ -3,7 +3,7 @@ import Button from '../../../components/button/Button'
 
 
 // eslint-disable-next-line react/prop-types
-export default function NewsDesktop({ news, setIsNewsOpened,  setNewsId }) {
+export default function NewsDesktop({ news }) {
     return (
         <Fragment>
             { news && (
@@ -15,13 +15,12 @@ export default function NewsDesktop({ news, setIsNewsOpened,  setNewsId }) {
                         <p className="news-card__content">
                             { singleNews.content.slice(0, 100) + " ..." }
                         </p>
-                        { console.log(singleNews.id) }
                         <Button
                             className="btn__read-news"
-                            onClick={ () => {
-                                setIsNewsOpened(true)
-                                setNewsId(singleNews.id)
-                            } }
+                            // onClick={ () => {
+                            //     setIsNewsOpened(true)
+                            //     setNewsId(singleNews.id)
+                            // } }
                         >
                             Читать дальше
                         </Button>
