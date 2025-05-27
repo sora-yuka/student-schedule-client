@@ -1,8 +1,8 @@
 .schedule {
-    margin: 20px 0;
+    margin: 20px 10px;
 }
 
-.schedule .container {
+.schedule-row {
     padding: 30px;
     border-radius: 10px;
     max-width: 1400px;

@@ -1,27 +1,27 @@
-import {Fragment, useCallback, useEffect, useState} from 'react'
+import { Fragment } from 'react'
+import { NavLink } from 'react-router-dom'
 
 
 // eslint-disable-next-line react/prop-types
 export default function NewsMobile({ news }) {
+
     return (
         <Fragment>
             { news && (
-                news.map((singleNews) => (
-                    <div
-                        className="news-card__mobile"
-                        key={ singleNews.id }
-                        onClick={() => {
-                            setIsNewsOpened(true)
-                            setNewsId(singleNews.id)
-                        }}
-                    >
-                        <div className="news-card__preview">
-                            <img src={ singleNews.preview } alt="card preview"/>
+                news.map((newsItem) => (
+                    <NavLink to={ "/news/" + newsItem.id }>
+                        <div
+                            className="news-card__mobile"
+                            key={ newsItem.id }
+                        >
+                            <div className="news-card__preview">
+                                <img src={ newsItem.preview } alt="card preview"/>
+                            </div>
+                            <div className="news-card__header">
+                                <h3 className="header">{ newsItem.header }</h3>
+                            </div>
                         </div>
-                        <div className="news-card__header">
-                            <h3 className="header">{ singleNews.header }</h3>
-                        </div>
-                    </div>
+                    </NavLink>
                 ))
             ) }
         </Fragment>

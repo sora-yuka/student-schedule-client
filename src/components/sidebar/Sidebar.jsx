@@ -39,84 +39,32 @@ export default function Sidebar({ activeContent, setActiveContent }) {
                         </li>
                         <li className="sidebar__list-item">
                             <NavLink
-                                to="/news"
-                                className={ ({isActive}) => (isActive ?  sidebarButtonActive : sidebarButton) }
+                                to="/news" 
+                                className={ ({isActive}) => (isActive ? sidebarButtonActive : sidebarButton) }
                             >
-                                <img 
-                                    src="/icons/news.svg"
-                                    alt="news icon" 
-                                    className="btn__sidebar-icon"
-                                />
+                                <img src="/icons/news.svg" alt="news icon" className="btn__sidebar-icon"/>
                                 Новости
                             </NavLink>
                         </li>
-                    </ul>
-
-                    {/* <ul className="sidebar-list">
-                        <li className="sidebar-list__item"> 
-                            <Button 
-                                className={ activeContent === "schedule" ? activeButton : inActiveButton }
-                                onClick={ () => { 
-                                    setActiveContent("schedule")
-                                    setContentHeadline("Расписание")
-                                } }
+                        <li className="sidebar__list-item">
+                            <NavLink
+                                to="/course"
+                                className={ ({isActive}) => (isActive ? sidebarButtonActive : sidebarButton) }
                             >
-                                <img 
-                                    src="/icons/schedule-icon.svg"
-                                    alt="schedule icon" 
-                                    className={ activeContent === "schedule" ?  activeButtonIcon : inActiveButtonIcon } 
-                                /> 
-                                Расписание
-                            </Button>
-                        </li>
-                        <li className="sidebar-list__item">
-                            <Button
-                                className={ activeContent === "news" ? activeButton : inActiveButton }
-                                onClick={ () => {
-                                    setActiveContent("news")
-                                } }
-                            >
-                                <img 
-                                    src="/icons/news.svg" 
-                                    alt="news icon" 
-                                    className={ activeContent === "news" ? activeButtonIcon : inActiveButtonIcon } 
-                                />
-                                Новости
-                            </Button>
-                        </li>
-                        <li className="sidebar-list__item">
-                            <Button
-                                className={ activeContent === "course" ? activeButton : inActiveButton }
-                                onClick={ () => {
-                                    setActiveContent("course")
-                                } }
-                            >
-                                <img 
-                                    src="/icons/ebook.png" 
-                                    alt="" 
-                                    className={ activeContent === "course" ? activeButtonIcon : inActiveButtonIcon }
-                                />
+                                <img src="/icons/ebook.png" alt="course icon" className="btn__sidebar-icon"/>
                                 Курсы
-                            </Button>
+                            </NavLink>
                         </li>
-                        <li className="sidebar-list__item">
-                            <Button 
-                                className={ activeContent === "chat" ? activeButton : inActiveButton }
-                                onClick={ () => {
-                                    setActiveContent("chat")
-                                    setContentHeadline("Чат")
-                                } }
+                        <li className="sidebar__list-item">
+                            <NavLink
+                                to="/chat"
+                                className={ ({isActive}) => isActive ? sidebarButtonActive : sidebarButton }
                             >
-                                <img 
-                                    src="/icons/chat-icon.svg" 
-                                    alt="chat icon" 
-                                    className={ activeContent === "chat" ?  activeButtonIcon : inActiveButtonIcon }  
-                                /> 
+                                <img src="/icons/chat-icon.svg" alt="" className="btn__sidebar-icon" />
                                 Чат
-                            </Button>
+                            </NavLink>
                         </li>
-                    </ul> */}
-
+                    </ul>
                 </div>
                 <div className="sidebar__toggle-theme">
                     <Button

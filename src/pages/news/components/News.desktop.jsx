@@ -1,5 +1,5 @@
-import {Fragment, useCallback, useEffect, useState} from 'react'
-import Button from '../../../components/button/Button'
+import { Fragment } from 'react'
+import { NavLink } from 'react-router-dom'
 
 
 // eslint-disable-next-line react/prop-types
@@ -7,23 +7,20 @@ export default function NewsDesktop({ news }) {
     return (
         <Fragment>
             { news && (
-                news.map((singleNews) => (
-                    <div className="news-card" key={ singleNews.id }>
+                news.map((newsItem) => (
+                    <div className="news-card" key={ newsItem.id }>
                         <h3 className="news-card__headline">
-                            { singleNews.header }
+                            { newsItem.header }
                         </h3>
                         <p className="news-card__content">
-                            { singleNews.content.slice(0, 100) + " ..." }
+                            { newsItem.content.slice(0, 100) + " ..." }
                         </p>
-                        <Button
+                        <NavLink
+                            to={ "/news/" + newsItem.id }
                             className="btn__read-news"
-                            // onClick={ () => {
-                            //     setIsNewsOpened(true)
-                            //     setNewsId(singleNews.id)
-                            // } }
                         >
                             Читать дальше
-                        </Button>
+                        </NavLink>
                     </div>
                 ))
             ) }

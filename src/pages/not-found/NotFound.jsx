@@ -10,14 +10,13 @@ export default function NotFound() {
             <div className="container">
                 <div className="not-found-row">
                     <h2 className="not-found__title"><strong>404</strong></h2>
-                    <h3 className="not-found__text"><strong>Page Not Found</strong></h3>
+                    <h3 className="not-found__text"><strong>Страница не найдена</strong></h3>
                     <p className="not-found__additional-text">
-                        We're sorry, the page you requested could not be found. <br />
-                        Please go back to the home page.
+                        Мы просим прощения, но страница которую вы ищите не найдена. <br />
                     </p>
                     <Link to="/">
                         <Button className="btn">
-                            Go home
+                            Назад
                         </Button>
                     </Link>
                 </div>

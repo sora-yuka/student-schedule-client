@@ -12,11 +12,3 @@
     overflow-x: hidden;
     background-color: var(--container-background-color);
 }
-
-.content-row__mobile {
-    display: none;
-}
-
-.content-container__mobile {
-    display: none;
-}

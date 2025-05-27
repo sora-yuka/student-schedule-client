@@ -24,6 +24,14 @@ html, body {
     padding: 0 15px;
 }
 
+@media screen and (max-width: 915px) { 
+    .container {
+        all: unset;
+        /* background-color: red;
+        padding: 20px; */
+    }
+}
+
 div::selection,
 h1::selection, 
 h2::selection, 

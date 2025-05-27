@@ -32,14 +32,17 @@ export default function Course() {
     }, [ ])
 
     return (
-        <Fragment>
+        <div className="course">
             { course ? (
-                <div className="course__row">
-                    <CourseDesktop courses={ course } />
+                <div className="container">
+                    <div className="course__row">
+                        <CourseDesktop courses={ course } />
+
+                    </div>
                 </div>
             ) : (
                 <NoContent />
             ) }
-        </Fragment>
+        </div>
     )
 }

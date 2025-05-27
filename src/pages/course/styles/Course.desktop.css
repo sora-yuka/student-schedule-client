@@ -1,11 +1,19 @@
 .course__row {
+    margin-top: 20px;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 20px;
 }
 
 .course__card {
-    padding: 40px;
+    padding: 30px 40px;
+    border-radius: 10px;
+    background-color: #FFF;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .course__professor {
@@ -13,11 +21,10 @@
 }
 
 .course__header {
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
     font-size: 18px;
     font-weight: 700;
-    border-bottom: 2px solid var(--background-color);
 }
 
 .course__btn {

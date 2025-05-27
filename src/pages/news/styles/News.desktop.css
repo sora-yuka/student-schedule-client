@@ -2,9 +2,13 @@
     display: none;
 }
 
+.news {
+    margin: 20px 0;
+}
+
 .news-row {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 30px;
 }
 
@@ -18,7 +22,8 @@
     color: var(--news-primary-color);
     border: 1px solid var(--news-secondary-color);
     border-radius: 10px;
-    background-color: #E9EAEA;
+    background-color: #FFF;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .news-card__headline {

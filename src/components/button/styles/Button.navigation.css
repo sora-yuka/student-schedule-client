@@ -34,6 +34,7 @@
 .btn__nav {
     display: flex;
     align-items: center;
+    color: #000;
     opacity: .4;
     transition: ease-in-out .2s;
 }

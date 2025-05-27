@@ -9,7 +9,7 @@ import Login from './pages/login/Login'
 
 import Schedule from './pages/schedule/Schedule'
 import News from './pages/news/News'
-import NewsDetail from './pages/news/components/NewsDetail'
+import NewsDetail from './pages/news-detail/NewsDetail'
 import Course from './pages/course/Course'
 import Chat from './pages/chat/Chat'
 

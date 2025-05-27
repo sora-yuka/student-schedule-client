@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, Fragment } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import Button from '../../components/button/Button'
+import { NavLink } from 'react-router-dom'
 
 import './Nav.css'
 
@@ -47,50 +48,44 @@ export default function Nav({ activeContent,  setActiveContent }) {
                 <div className="off-screen-menu">
                     <ul className={ isBurger ? "off-screen-menu active" : "off-screen-menu" }>
                         <li className="off-screen-menu__item">
-                            <Button
-                                className={ activeContent === "schedule" ? "btn__nav active" : "btn__nav" }
-                                onClick={ () => {
-                                    setActiveContent("schedule")
-                                    setIsBurger(false)
-                                } }
+                            <NavLink
+                                to="/"
+                                className={ ({isActive}) => (isActive ? "btn__nav active" : "btn__nav") }
+                                onClick={ () => setIsBurger(false) }
                             >
-                                <img
-                                    src="./icons/schedule-icon.svg"
-                                    alt="schedule icon"
-                                />
+                                <img src="/icons/schedule-icon.svg" alt="schedule icon"/>
                                 Расписание
-                            </Button>
+                            </NavLink>
                         </li>
                         <li className="off-screen-menu__item">
-                            <Button
-                                className={ activeContent === "news" ? "btn__nav active" : "btn__nav" }
-                                onClick={ () => {
-                                    setActiveContent("news")
-                                    setIsBurger(false)
-                                } }
+                            <NavLink
+                                to="/news"
+                                className={ ({isActive}) => isActive ? "btn__nav active" : "btn__nav" }
+                                onClick={ () => setIsBurger(false) }
                             >
-                            <img
-                                src="./icons/news.svg"
-                                alt="news icon"
-                            />
+                                <img src="/icons/news.svg" alt="news icon"/>
                                 Нововсти
-                            </Button>
+                            </NavLink>
                         </li>
                         <li className="off-screen-menu__item">
-                            <Button
-                                className={ activeContent === "chat" ? "btn__nav active" : "btn__nav" }
-                                onClick={ () => {
-                                    setActiveContent("chat")
-                                    setIsBurger(false)
-                                } }
+                            <NavLink
+                                to="/course"
+                                className={ ({isActive}) => isActive ? "btn__nav active" : "btn__nav" }
+                                onClick={ () => setIsBurger(false) }
                             >
-                            <img
-                                src="./icons/chat-icon.svg"
-                                alt="chat icon"
-                                // className={ activeContent === "chat" ?  activeButtonIcon : inActiveButtonIcon }
-                            />
+                                <img src="/icons/ebook.png" alt="book icon" />
+                                Курсы
+                            </NavLink>
+                        </li>
+                        <li className="off-screen-menu__item">
+                            <NavLink
+                                to="/chat"
+                                className={ activeContent === "chat" ? "btn__nav active" : "btn__nav" }
+                                onClick={ () => setIsBurger(false) }
+                            >
+                                <img src="/icons/chat-icon.svg" alt="chat icon"/>
                                 Чат
-                            </Button>
+                            </NavLink>
                         </li>
                     </ul>
                 </div>

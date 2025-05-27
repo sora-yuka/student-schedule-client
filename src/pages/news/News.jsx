@@ -33,21 +33,17 @@ export default function News() {
     }, [ ])
 
     return (
-        <Fragment>
+        <div className="news">
             { news ? (
-                <div className="news-row">
-                    <Fragment>
-                        <NewsDesktop
-                            news={ news }
-                        />
-                        <NewsMobile
-                            news={ news }
-                        />
-                    </Fragment>
+                <div className="container">
+                    <div className="news-row">
+                        <NewsDesktop news={ news }/>
+                        <NewsMobile news={ news }/>
+                    </div>
                 </div>
             ) : (
                 <NoContent />
             ) }
-        </Fragment>
+        </div>
     )
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, Fragment } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import ScheduleDesktop from './components/Schedule.desktop.jsx'
 import ScheduleMobile from './components/Schedule.mobile.jsx'
 

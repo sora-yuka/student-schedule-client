@@ -1,6 +1,13 @@
 @media screen and (max-width: 800px) {
     .news-row {
-        all: unset;
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+        gap: 10px;
+    }
+
+    .news-row a {
+        color: #000;
     }
 
     .news-card {
@@ -8,8 +15,8 @@
     }
 
     .news-card__mobile {
-        display: grid;
-        grid-template-areas: "news-card__preview news-card__header";
+        display: flex;
+        height: 114px;
         padding: 7px;
         border-radius: 7px;
         background-color: var(--container-background-color);
@@ -18,6 +25,7 @@
 
     .news-card__preview {
         margin-right: 10px;
+        flex-shrink: 0;
     }
 
     .news-card__preview img {

@@ -54,3 +54,11 @@
 .btn__submit:disabled {
     pointer-events: none;
 }
+
+@media screen and (max-width: 800px) {
+    .btn {
+        color: #FFF;
+        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+        background-color: var(--btn-background-color);
+    }
+}

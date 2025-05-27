@@ -23,7 +23,7 @@ export default function ScheduleDesktop({ schedule, day, setDay }) {
                             </select>
                         </div>
                         <ul className="secondary__list">
-                            { schedule[day] !== "No schedule" ? (
+                            { schedule[day] !== "No schedule" && (
                                 schedule[day].map((currentSchedule, id) => (
                                         <li className="secondary__list-item" key={ id }>
                                             <div className="time-row">
@@ -42,14 +42,13 @@ export default function ScheduleDesktop({ schedule, day, setDay }) {
                                             </div>
                                         </li>
                                     )
-                                )) : (
-                                <p>Добби свободен :)</p>
-                            ) }
+                                )) 
+                            }
                         </ul>
                     </div>
                     <div className="schedule__primary">
                         <ul className="primary__list">
-                            { schedule[day] !== "No schedule" ? (
+                            { schedule[day] !== "No schedule" && (
                                 schedule[day].map((currentSchedule, id) => (
                                     <li className="primary__list-item" key={ id }>
                                         <div className="additional-text">
@@ -81,8 +80,6 @@ export default function ScheduleDesktop({ schedule, day, setDay }) {
                                         </div>
                                     </li>
                                 ))
-                            ) : (
-                                <p style={{ fontSize: "24px" }}>Ребят, я отменил пары, не благодарите</p>
                             ) }
                         </ul>
                     </div>
