@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import Button from '../../../components/button/Button'
 
 
@@ -9,12 +10,9 @@ export default function CourseDesktop({ courses }) {
                     <p className="course__professor">{ course.professor }</p>
                     <h3 className="course__header">{ course.name }</h3>
                     <div className="course__btn">
-                        <Button 
-                            className="btn__course"
-                            onClick={ () => {  } }
-                        >
+                        <NavLink to={ "/course/" + course.id } className="btn__course">
                             Перейти
-                        </Button>
+                        </NavLink>
                     </div>
                 </div>
             ) )

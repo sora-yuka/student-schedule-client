@@ -7,16 +7,11 @@ import './HomePage.css'
 
 
 export default function HomePage() {
-    const [ activeContent, setActiveContent ] = useState("schedule")
-
     return (
         <div className="main-wrapper">
-            <Sidebar 
-                activeContent={ activeContent } 
-                setActiveContent={ setActiveContent }
-            />
+            <Sidebar />
             <div className="main">
-                <Nav activeContent={activeContent} setActiveContent={setActiveContent} />
+                <Nav />
                 <Outlet />
             </div>
         </div>

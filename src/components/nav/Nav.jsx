@@ -7,7 +7,7 @@ import './Nav.css'
 
 
 // eslint-disable-next-line react/prop-types
-export default function Nav({ activeContent,  setActiveContent }) {
+export default function Nav() {
     const { isAuthenticated, logout } = useAuth()
     const [ profile, setProfile ] = useState(null)
     const [ isOpen, setIsOpen ] = useState(false)
@@ -80,7 +80,7 @@ export default function Nav({ activeContent,  setActiveContent }) {
                         <li className="off-screen-menu__item">
                             <NavLink
                                 to="/chat"
-                                className={ activeContent === "chat" ? "btn__nav active" : "btn__nav" }
+                                className={ ({isActive}) => isActive ? "btn__nav active" : "btn__nav" }
                                 onClick={ () => setIsBurger(false) }
                             >
                                 <img src="/icons/chat-icon.svg" alt="chat icon"/>
